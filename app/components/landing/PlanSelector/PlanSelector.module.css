@@ -1,0 +1,116 @@
+.plans {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.planCard {
+  position: relative;
+  border: 2px solid #CED7E5;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #F1F5FB;
+  cursor: pointer;
+  transition: border 0.2s ease, background 0.2s ease;
+}
+
+.planCard.active {
+  border-color: #0062f5;
+  background: #fff;
+}
+
+.popularBar {
+  width: 100%;
+  background: #222B38;
+  color: #fff;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 6px 0;
+  text-align: center;
+}
+
+.planCard.active .popularBar {
+  background: #0062f5;
+}
+
+.content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px;
+}
+
+.label {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 15px;
+  font-weight: 500;
+  color: #222B38;
+}
+
+.planText {
+  font-size: 18px;
+  font-weight: 700;
+  color: #222B38;
+}
+
+.priceBadge {
+  background: #E1E9F4;
+  border-radius: 8px;
+  padding: 6px 10px;
+  display: flex;
+  align-items: flex-start;
+  gap: 2px;
+  border: 1px solid #E1E9F4;
+  min-width: 56px;
+  justify-content: center;
+}
+
+.dollar {
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1;
+  color: #222B38;
+  margin-top: 2px;
+}
+
+.amount {
+  font-size: 48px;
+  font-weight: 800;
+  line-height: 1;
+  color: #222B38;
+}
+
+.label input[type="radio"] {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  width: 22px;
+  height: 22px;
+  border: 2px solid #CED7E5;
+  border-radius: 50%;
+  display: inline-block;
+  position: relative;
+  cursor: pointer;
+  transition: border-color 0.2s ease, background 0.2s ease;
+  background: #f1f5fb;
+}
+
+.label input[type="radio"]:checked {
+  border-color: #0062F5;
+}
+
+.label input[type="radio"]:checked::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 13px;
+  height: 13px;
+  background: #0062F5;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+}

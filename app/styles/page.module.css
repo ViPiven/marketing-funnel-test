@@ -1,0 +1,28 @@
+.container {
+  position: relative;
+}
+
+.startBtn {
+  position: fixed;
+  bottom: 24px;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  max-width: 600px;
+  width: calc(100% - 32px);
+  
+  background-color: #0062f5;
+  color: #fff;
+  font-size: 18px;
+  font-weight: 600;
+  border: none;
+  border-radius: 12px;
+  padding: 16px;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  transition: background 0.2s ease;
+}
+
+.startBtn:hover {
+  background-color: #004bbf;
+}

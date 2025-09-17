@@ -1,0 +1,103 @@
+.container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.textBlock { 
+    text-align: center;
+    margin-bottom: 70px;
+}
+
+.title {
+  font-size: 24px;
+  font-weight: 600;
+  color: #222B38;
+  line-height: 32px;
+}
+
+.chartWrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  max-height: 354px;
+}
+
+.chart { 
+  display: block; 
+  width: 100%; 
+  height: 100%; 
+}
+
+.nowLabel{
+  position: absolute;
+  background:#fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  padding: 6px 10px;
+  font-size: 13px;
+  color:#111827;
+  box-shadow: 0 6px 18px rgba(2,6,23,0.08);
+  white-space: nowrap;
+}
+
+.dateLabel {
+  position: absolute;
+  border-radius: 10px;
+  padding: 6px 10px;
+  color: #fff;
+  font-size: 13px;
+  box-shadow: 0 6px 18px rgba(2,6,23,0.12);
+  white-space: nowrap;
+  text-align: center;
+  background: linear-gradient(-135deg, #FF4D78 0%, #FF9600 100%);
+
+  opacity: 0;
+  transform: translate(16px, 20px);
+  animation: slideUp 1s ease-out forwards;
+  animation-delay: 1.5s;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translate(16px, 20px);
+  }
+  to {
+    opacity: 1;
+    transform: translate(16px, -54px);
+  }
+}
+.dateTop { 
+    font-weight:600; 
+}
+
+.dateBottom { 
+    font-weight:500; 
+    font-size:12px; 
+    margin-top:2px; 
+}
+
+.footer {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 24px;
+  display: flex;
+  justify-content: center;
+  padding: 0 24px;
+  background: transparent;
+}
+
+.revealRect {
+  animation: revealAnim 2.2s ease forwards;
+}
+
+@keyframes revealAnim {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}

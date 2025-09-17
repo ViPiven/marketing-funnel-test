@@ -1,0 +1,30 @@
+.icon {
+  width: 24px;
+  height: 24px;
+  stroke: #222b38;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.circle {
+  stroke: #778191;
+  stroke-opacity: 0.6;
+  stroke-dasharray: 56;
+  stroke-dashoffset: 56;
+  transition: stroke-dashoffset 0.4s ease;
+}
+
+.check {
+  stroke: #222b38;
+  stroke-dasharray: 20;
+  stroke-dashoffset: 20;
+  transition: stroke-dashoffset 0.3s ease 0.3s;
+}
+
+.animate .circle {
+  stroke-dashoffset: 0;
+}
+
+.animate .check {
+  stroke-dashoffset: 0;
+}

@@ -1,0 +1,38 @@
+.featuresSection {
+  margin: 48px 0 0;
+}
+
+.featuresTitle {
+  text-align: center;
+  font-size: 24px;
+  font-weight: 600;
+  color: #000000;
+  margin-bottom: 12px;
+}
+
+.featuresCard {
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 6px;
+  box-shadow: 0px 2px 6px -2px rgba(29, 41, 52, 0.24);
+  overflow: hidden;
+}
+
+.featureItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 24px;
+  padding: 12px 24px;
+  border-bottom: 2px solid #f3f4f6;
+}
+
+.featureItem:last-child {
+  border-bottom: none;
+}
+
+.featureText {
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+}
