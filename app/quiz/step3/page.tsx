@@ -18,14 +18,14 @@ export default function Step3() {
   const origXDiff = origRightX - origLeftX; // 276
 
   // Desired margins (based on layout)
-  const leftMargin = 28; 
-  const rightMargin = 38; 
+  const leftMargin = 28;
+  const rightMargin = 38;
 
   // Effective drawing width for the path
   const targetWidth = svgW - leftMargin - rightMargin; // 222
 
   // Scale and translate to fit original path into target area
-  const sx = targetWidth / origXDiff; 
+  const sx = targetWidth / origXDiff;
   const tx = leftMargin - sx * origLeftX;
 
   // Horizontal grid lines
@@ -34,9 +34,18 @@ export default function Step3() {
   const step = (bottomY - topY) / 5;
   const gridLines = Array.from({ length: 6 }, (_, i) => topY + step * i);
 
-  // Start and end circle positions
-  const start = { x: leftMargin, y: gridLines[5] }; 
-  const end = { x: svgW - rightMargin, y: gridLines[0] };
+  // Start and end circle positions in px
+  const start = { x: sx * origLeftX + tx, y: gridLines[5] };
+  const end = { x: sx * origRightX + tx, y: gridLines[0] };
+
+  // Convert to % relative to svgW/svgH
+  const toPercent = (x: number, y: number) => ({
+    x: (x / svgW) * 100,
+    y: (y / svgH) * 100,
+  });
+
+  const startPct = toPercent(start.x, start.y);
+  const endPct = toPercent(end.x, end.y);
 
   return (
     <div className={styles.container}>
@@ -102,9 +111,9 @@ export default function Step3() {
         <div
           className={styles.nowLabel}
           style={{
-            left: `${start.x}px`,
-            top: `${start.y}px`,
-            transform: "translate(-20px, 56px)",
+            left: `${startPct.x}%`,
+            top: `${startPct.y}%`,
+            transform: "translate(-50%, 12px)",
           }}
         >
           Now
@@ -112,9 +121,9 @@ export default function Step3() {
         <div
           className={styles.dateLabel}
           style={{
-            left: `${end.x}px`,
-            top: `${end.y}px`,
-            transform: "translate(16px, -54px)",
+            left: `${endPct.x - 14}%`,
+            top: `${endPct.y - 2}%`,
+            transform: "translate(-50%, -100%)",
           }}
         >
           <div className={styles.dateTop}>Sep 17</div>
@@ -123,11 +132,7 @@ export default function Step3() {
       </div>
 
       <div className={styles.footer}>
-        <Button
-          onClick={() => router.push("/landing")}
-        >
-          Continue
-        </Button>
+        <Button onClick={() => router.push("/landing")}>Continue</Button>
       </div>
     </div>
   );

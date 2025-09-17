@@ -32,22 +32,22 @@
 .nowLabel{
   position: absolute;
   background:#fff;
-  border: 1px solid #e5e7eb;
-  border-radius: 10px;
-  padding: 6px 10px;
-  font-size: 13px;
-  color:#111827;
-  box-shadow: 0 6px 18px rgba(2,6,23,0.08);
+  border: 1px solid #00000014;
+  border-radius: 8px;
+  padding: 8px 12px;
+  font-size: 14px;
+  font-weight: 500;
+  box-shadow: 0px 2px 4px -2px rgba(0, 0, 0, 0.12);
   white-space: nowrap;
 }
 
 .dateLabel {
   position: absolute;
-  border-radius: 10px;
-  padding: 6px 10px;
+  border-radius: 8px;
+  padding: 8px 12px;
   color: #fff;
-  font-size: 13px;
-  box-shadow: 0 6px 18px rgba(2,6,23,0.12);
+  font-size: 14px;
+  font-weight: 500;
   white-space: nowrap;
   text-align: center;
   background: linear-gradient(-135deg, #FF4D78 0%, #FF9600 100%);
