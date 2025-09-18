@@ -7,7 +7,7 @@ import { CHART_PATH } from "@/app/constants/chartConstants";
 import { useChartGeometry } from "@/app/hooks/useChartGeometry";
 
 export default function Step3() {
-  const { gridLines, start, end, startPct, endPct, sx, tx } = useChartGeometry();
+  const { gridLines, start, end, startPct, endPct, scaleX, translateX } = useChartGeometry();
 
   return (
     <div className={styles.container}>
@@ -54,7 +54,7 @@ export default function Step3() {
             </clipPath>
           </defs>
 
-          <g transform={`matrix(${sx} 0 0 1 ${tx} 0)`} clipPath="url(#reveal)">
+          <g transform={`matrix(${scaleX} 0 0 1 ${translateX} 0)`} clipPath="url(#reveal)">
             <path d={CHART_PATH} fill="#0062F5" />
           </g>
 
