@@ -4,30 +4,6 @@
   height: 100vh;
 }
 
-.header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 12px 16px 24px;
-  background: #ffffff;
-}
-
-.iconBtn {
-  background: transparent;
-  border: none;
-  padding: 8px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-}
-
-.appTitle {
-  font-weight: 600;
-  color: #1f2937;
-  font-size: 16px;
-}
-
 .mainContent {
   display: flex;
   justify-content: center;
