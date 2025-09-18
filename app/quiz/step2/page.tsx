@@ -16,7 +16,13 @@ export default function Step2() {
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleContinue = async () => {
-    if (showError || !email.trim()) {
+    if (!email.trim()) {
+      toast.error("Please enter your email");
+      return;
+    }
+
+    if (showError) {
+      toast.error("Enter a valid email");
       return;
     }
 

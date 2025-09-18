@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 
 const MAX_PROGRESS = 87;
-const ANIMATION_DURATION = 2000;
+const ANIMATION_DURATION = 1500;
 
 export const useProgress = () => {
   const [progress, setProgress] = useState(0);

@@ -45,18 +45,19 @@
 }
 
 .input:focus {
-  border-color: #1563ff;
+  border: 2px solid #222B38;
   box-shadow: 0 6px 18px rgba(21, 99, 255, 0.08);
 }
 
 .error {
-  border-color: #e11d48;
+  border: 2px solid #FF0000;
 }
 
 .errorText {
   margin-top: 6px;
-  font-size: 13px;
-  color: #e11d48;
+  font-size: 12px;
+  font-weight: 500;
+  color: #FF0000;
   padding-left: 4px;
 }
 
