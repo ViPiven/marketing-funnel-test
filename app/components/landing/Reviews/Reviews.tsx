@@ -1,6 +1,7 @@
 import React from "react";
 import styles from "./Reviews.module.css";
 import { REVIEWS } from "@/app/constants/landingData";
+import Stars from "@/app/components/icons/Stars";
 
 export default function Reviews() {
   return (
@@ -11,7 +12,7 @@ export default function Reviews() {
         <div key={review.id} className={styles.reviewCard}>
           <div className={styles.reviewHeader}>
             <span className={styles.reviewName}>{review.name}</span>
-            <span className={styles.stars}>{review.stars}</span>
+            <Stars size={80} />
           </div>
           <div className={styles.reviewDate}>{review.date}</div>
           <p className={styles.reviewText}>{review.text}</p>

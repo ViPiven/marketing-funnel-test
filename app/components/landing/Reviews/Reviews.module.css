@@ -30,13 +30,8 @@
   line-height: 24px;
 }
 
-.stars {
-  color: #FF7A00;
-  font-size: 15px;
-}
-
 .reviewDate {
-  font-size: 14px;
+  font-size: 12px;
   line-height: 16px;
   font-weight: 400;
   color: #0000007A;
