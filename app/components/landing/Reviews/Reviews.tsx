@@ -12,7 +12,7 @@ export default function Reviews() {
         <div key={review.id} className={styles.reviewCard}>
           <div className={styles.reviewHeader}>
             <span className={styles.reviewName}>{review.name}</span>
-            <Stars size={80} />
+            <Stars size={14} />
           </div>
           <div className={styles.reviewDate}>{review.date}</div>
           <p className={styles.reviewText}>{review.text}</p>
