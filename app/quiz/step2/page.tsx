@@ -1,52 +1,51 @@
 "use client";
 
-import { useState } from "react";
 import { useRouter } from "next/navigation";
+import toast from "react-hot-toast";
 import styles from "./page.module.css";
 import Button from "@/app/components/ui/Button/Button";
+import { ROUTES } from "@/app/constants/routes";
+import Title from "@/app/components/ui/Title/Title";
+import { sendQuizEmail } from "@/app/services/quizService";
+import { useEmailInput } from "@/app/hooks/useEmailInput";
+import { useState } from "react";
 
 export default function Step2() {
   const router = useRouter();
-  const [email, setEmail] = useState("");
-  const [showError, setShowError] = useState(false);
+  const { email, showError, bind, reset } = useEmailInput();
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const validateEmail = (value: string) =>
-    /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value.trim());
-
   const handleContinue = async () => {
-    if (!validateEmail(email)) {
-      setShowError(true);
+    if (showError || !email.trim()) {
       return;
     }
-    setShowError(false);
+
     setIsSubmitting(true);
 
     try {
-        const res = await fetch("/api/quiz", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ email }),
-        });
+      const result = await sendQuizEmail(email);
+      console.log("Server responded with:\n", JSON.stringify(result, null, 2));
 
-        const result = await res.json();
-        console.log("Server responded with:\n", JSON.stringify(result, null, 2));
+      toast.success("Email successfully sent!");
+      reset();
+
+      setTimeout(() => {
+        router.push(ROUTES.QUIZ.STEP3);
+      }, 1000);
     } catch (err) {
-        console.error("Failed to send results:", err);
+      console.error("Failed to send results:", err);
+      setIsSubmitting(false);
+      toast.error("Something went wrong. Try again.");
     }
-
-    setTimeout(() => {
-      router.push("/quiz/step3");
-    }, 500);
   };
 
   return (
     <div className={styles.container}>
-      <h1 className={styles.title}>
+      <Title className={styles.title}>
         Enter your email to get
         <br /> your personalised
         <br /> Spiritual Growth Plan
-      </h1>
+      </Title>
 
       <div className={styles.form}>
         <div className={styles.inputWrapper}>
@@ -54,19 +53,17 @@ export default function Step2() {
           <input
             className={`${styles.input} ${showError ? styles.error : ""}`}
             type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
             disabled={isSubmitting}
+            {...bind}
           />
         </div>
-        {showError && <div className={styles.errorText}>Enter a valid email</div>}
+        {showError && (
+          <div className={styles.errorText}>Enter a valid email</div>
+        )}
       </div>
 
       <div className={styles.footer}>
-        <Button
-          onClick={handleContinue}
-          disabled={isSubmitting}
-        >
+        <Button onClick={handleContinue} disabled={isSubmitting}>
           {isSubmitting ? "Sending..." : "Continue"}
         </Button>
       </div>

@@ -8,20 +8,17 @@ import Features from "@/app/components/landing/Features/Features";
 import Results from "@/app/components/landing/Results/Results";
 import Reviews from "@/app/components/landing/Reviews/Reviews";
 import CTAButton from "@/app/components/landing/CTAButton/CTAButton";
+import Title from "@/app/components/ui/Title/Title";
+import { PLANS } from "../constants/landingData";
+import { usePersistentState } from "../hooks/usePersistentState";
 
 export default function LandingPage() {
-  const [selected, setSelected] = useState<string | null>(null);
-
-  const plans = [
-    { id: "1", label: "1 – Month Plan", price: 10 },
-    { id: "3", label: "3 – Month Plan", price: 30, popular: true },
-    { id: "6", label: "6 – Month Plan", price: 60 },
-  ];
+  const [selected, setSelected] = usePersistentState<string | null>( "selectedPlan", null );
 
   return (
     <div className={styles.container}>
-      <h1 className={styles.title}>Choose your plan</h1>
-      <PlanSelector plans={plans} selected={selected} setSelected={setSelected} />
+      <Title className={styles.title}>Choose your plan</Title>
+      <PlanSelector plans={PLANS} selected={selected} setSelected={setSelected} />
 
       <CTAButton>Get my plan</CTAButton>
 
@@ -42,6 +39,8 @@ export default function LandingPage() {
       <Features />
       <Results />
       <Reviews />
+      <Title className={styles.title}>Choose your plan</Title>
+      <PlanSelector plans={PLANS} selected={selected} setSelected={setSelected} />
     </div>
   );
 }

@@ -1,6 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 import styles from "./AnimatedCheck.module.css";
+import clsx from "clsx";
 
 export default function AnimatedCheck({ delay = 0 }: { delay?: number }) {
   const [animate, setAnimate] = useState(false);
@@ -12,7 +13,9 @@ export default function AnimatedCheck({ delay = 0 }: { delay?: number }) {
 
   return (
     <svg
-      className={`${styles.icon} ${animate ? styles.animate : ""}`}
+      className={clsx(styles.icon, {
+        [styles.animate]: animate,
+      })}
       viewBox="0 0 24 24"
     >
       <circle

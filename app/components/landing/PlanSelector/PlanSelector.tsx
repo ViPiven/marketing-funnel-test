@@ -2,6 +2,7 @@
 
 import React from "react";
 import styles from "./PlanSelector.module.css";
+import clsx from "clsx";
 
 interface Plan {
   id: string;
@@ -22,9 +23,9 @@ export default function PlanSelector({ plans, selected, setSelected }: Props) {
       {plans.map((plan) => (
         <div
           key={plan.id}
-          className={`${styles.planCard} ${
-            selected === plan.id ? styles.active : ""
-          }`}
+          className={clsx(styles.planCard, {
+            [styles.active]: selected === plan.id,
+          })}
           onClick={() => setSelected(plan.id)}
         >
           {plan.popular && (
@@ -35,7 +36,6 @@ export default function PlanSelector({ plans, selected, setSelected }: Props) {
             <label className={styles.label}>
               <input
                 type="radio"
-                name="plan"
                 checked={selected === plan.id}
                 onChange={() => setSelected(plan.id)}
               />

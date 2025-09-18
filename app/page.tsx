@@ -1,19 +1,13 @@
-"use client";
-
-import { useRouter } from "next/navigation";
+import Link from "next/link";
 import styles from "./styles/page.module.css";
+import { ROUTES } from "@/app/constants/routes"
 
 export default function HomePage() {
-  const router = useRouter();
-
   return (
     <div className={styles.container}>
-      <button
-        className={styles.startBtn}
-        onClick={() => router.push("/quiz/step1")}
-      >
+      <Link href={ROUTES.QUIZ.STEP1} className={styles.startBtn}>
         Start
-      </button>
+      </Link>
     </div>
   );
 }
