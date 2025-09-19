@@ -76,7 +76,7 @@ export default function Step3() {
           className={styles.dateLabel}
           style={{
             left: `${endPct.x - 14}%`,
-            top: `${endPct.y - 2}%`,
+            top: `${endPct.y - 4}%`,
             transform: "translate(-50%, -100%)",
           }}
         >
